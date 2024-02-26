@@ -36,5 +36,5 @@ int main() {
       break;
   }
 
-  return abc;
+  return 0;
 }
