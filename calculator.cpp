@@ -1,40 +1,49 @@
-# include <iostream>
-using namespace std;
+#include <iostream>
+#include <string>
+
+// Base class
+class Animal {
+public:
+    virtual void makeSound() const = 0; // Pure virtual function
+};
+
+// Derived class Dog
+class Dog : public Animal {
+public:
+    void makeSound() const override {
+        std::cout << "Dog: Woof woof!" << std::endl;
+    }
+};
+
+// Derived class Horse
+class Horse : public Animal {
+public:
+    void makeSound() const override {
+        std::cout << "Horse: Neigh neigh!" << std::endl;
+    }
+};
+
+// Derived class Cat
+class Cat : public Animal {
+public:
+    void makeSound() const override {
+        std::cout << "Cat: Meow meow!" << std::endl;
+    }
+};
 
 int main() {
+    Dog dog;
+    Horse horse;
+    Cat cat;
 
-  char op;
-  float num1, num2;
+    std::cout << "Dog says: ";
+    dog.makeSound();
 
-  cout << "Enter operator: +, -, *, /: ";
-  cin >> op;
+    std::cout << "Horse says: ";
+    horse.makeSound();
 
-  cout << "Enter two operands: ";
-  cin >> num1 >> num2;
+    std::cout << "Cat says: ";
+    cat.makeSound();
 
-  switch(op) {
-
-    case '+':
-      cout << num1 << " + " << num2 << " = " << num1 + num2;
-      break;
-
-    case '-':
-      cout << num1 << " - " << num2 << " = " << num1 - num2;
-      break;
-
-    case '*':
-      cout << num1 << " * " << num2 << " = " << num1 * num2;
-      break;
-
-    case '/':
-      cout << num1 << " / " << num2 << " = " << num1 / num2;
-      break;
-
-    default:
-      // If the operator is other than +, -, * or /, error message is shown
-      cout << "Error! operator is not correct";
-      break;
-  }
-
-  return 0;
+    return 0;
 }
